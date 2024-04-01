@@ -1,14 +1,14 @@
 fn main() {
-    // Learning the fundamentos of Rust
-    // Print by console, use of mutable and unmutable vars and const.
-    println!("\nFundaments of Rust:");
-    fundaments();
+    // Learning the fundamentals of Rust
+    // Print by console, use of mutable and immutable vars and const.
+    println!("\nFundamentals of Rust:");
+    fundamentals();
 
     println!("\nData Types of Rust:");
     data_types();
 }
 
-fn fundaments() {
+fn fundamentals() {
     println!("My first Rust program!");
     let mut x = 10;
     const GRAVITY: f32 = 9.8;
@@ -29,11 +29,11 @@ fn data_types() {
     // DATA TYPES SIMPLES
     println!("Integer management: ");
 
-    let mut integer: i128 = 1654;
+    let mut integer: i32 = 1654;
     println!("integer Value: {}", integer);
 
     integer = 525;
-    println!("a Value: {}", integer);
+    println!("integer Value: {}", integer);
 
     let divisor: i32 = 2;
 
@@ -46,27 +46,64 @@ fn data_types() {
     println!("Today is Saturday: {}", today_is_saturday);
 
     // Character
-    let caracter: char = 'A';
-    println!("Character Value: {}", caracter);
+    let character: char = 'A';
+    println!("Character Value: {}", character);
 
     // DATA TYPES COMPOUNDS
     // 1. TUPLAS
-    let mut tupla: (i32, i32, f64) = (1, 2, 3.0);
+    let mut tuple: (i32, i32, f64) = (1, 2, 3.0);
 
-    // Asign the values to a set of vars
-    let (mut x, y, z) = tupla;
+    // Assign the values to a set of vars
+    let (mut x, y, z) = tuple;
 
-    println!("Tupla Value: ({}, {}, {})", x, y, z);
+    println!("Tuple Value: ({}, {}, {})", x, y, z);
 
-    // For access to elements of the tupla, use the dot .
-    println!("Tupla Value: ({}, {}, {})", tupla.0, tupla.1, tupla.2);
+    // For access to elements of the tuple, use the dot .
+    println!("Tuple Value: ({}, {}, {})", tuple.0, tuple.1, tuple.2);
 
-    // Change the value of the tupla
-    tupla.0 = 10;
-    x = tupla.0;
-    println!("Tupla Value: ({}, {}, {})", x, y, z);
+    // Change the value of the tuple
+    tuple.0 = 10;
+    x = tuple.0;
+    println!("Tuple Value: ({}, {}, {})", x, y, z);
 
     // Arrays
+    println!("\nArrays: ");
     let array: [i32; 5] = [1, 2, 3, 4, 5];
-    println!("Array Value: {:?}", array);
+    using_functions(array);
+}
+
+fn using_functions(array: [i32; 5]) {
+    // Arrays calling a function with a return value and the array as parameter
+
+    for i in 0..5 {
+        println!("Array Value: {}", array[i]);
+        let cousin: bool = cousin_number(array[i]);
+        if cousin {
+            println!("The number {} is cousin", array[i]);
+        } else {
+            println!("The number {} is not cousin", array[i]);
+        }
+    }
+
+    // Give a value to a var due to a function
+    let age = 18;
+    let j = {
+        let current_age = age;
+        current_age + 1
+    };
+
+    println!("My current age is: {}", j);
+}
+
+fn cousin_number(number: i32) -> bool {
+    if number <= 1 {
+        return false;
+    }
+
+    for i in 2..(number / 2 + 1) {
+        if number % i == 0 {
+            return false;
+        }
+    }
+    true
 }
