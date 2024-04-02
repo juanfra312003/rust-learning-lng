@@ -103,6 +103,25 @@ fn data_types() {
 
     println!("\nPropiety Concept: ");
     propiety_concept();
+
+    println!("\nPropierty: ");
+    let string = String::from("Hello, I'm learning Rust");
+    let result_string = take_propierty(string);
+    println!("String Value: {}", result_string);
+
+    println!("\nPropierty with return: ");
+    let string = String::from("Today is a great day");
+    let (result_string, length) = propierty_return(string);
+    println!("String Value: {}, Length: {}", result_string, length);
+}
+
+fn propierty_return(string: String) -> (String, usize) {
+    let length: usize = string.len();
+    return (string, length);
+}
+
+fn take_propierty(string: String) -> String {
+    return string;
 }
 
 fn using_functions(array: [i32; 5]) {
