@@ -70,6 +70,36 @@ fn data_types() {
     println!("\nArrays: ");
     let array: [i32; 5] = [1, 2, 3, 4, 5];
     using_functions(array);
+
+    // Conditions
+    println!("\nConditions: ");
+    let mut number = 9;
+    conditions(number);
+    number = 10;
+    conditions(number);
+    number = 11;
+    conditions(number);
+
+    // Conditions with return value
+    println!("\nConditions with return: ");
+    let number: i32 = 10;
+    let number_return: i32 = conditions_odd(number);
+    if number_return == 1 {
+        println!("The number is even");
+    } else {
+        println!("The number is odd");
+    }
+
+    // Bucles
+    println!("\nBucles: ");
+    println!("\nBucles with loop");
+    loop_bucle();
+
+    println!("\nBucles with while");
+    while_bucle();
+
+    println!("\nBucles with for");
+    for_while();
 }
 
 fn using_functions(array: [i32; 5]) {
@@ -105,5 +135,64 @@ fn cousin_number(number: i32) -> bool {
             return false;
         }
     }
-    true
+    return true;
+}
+
+fn conditions(number: i32) {
+    if number > 10 {
+        println!("The number {} is greater than 10", number)
+    } else if number < 10 {
+        println!("The number {} is less than 10", number)
+    } else {
+        println!("The number {} is equal to 10", number)
+    }
+}
+
+fn conditions_odd(number: i32) -> i32 {
+    let boolean: bool = number % 2 == 0;
+    let result = if boolean { 1 } else { 0 };
+    return result;
+}
+
+fn loop_bucle() {
+    let mut counter = 0;
+    let resultado = loop {
+        println!("Hello, I'm learning Rust");
+        counter += 1;
+        if counter == 10 {
+            break counter + 7;
+        }
+    };
+
+    println!("Millos will win their {} league in this year", resultado);
+}
+
+fn while_bucle() {
+    let mut counter = 10;
+
+    while counter != 0 {
+        println!("Counter Value: {}", counter);
+        counter -= 1;
+    }
+
+    println!("\nWhile with Array: ");
+    let array: [i32; 5] = [10, 20, 30, 40, 50];
+    let mut i = 0;
+
+    while i < array.len() {
+        println!("Value: {}, {}", i, array[i]);
+        i += 1;
+    }
+}
+
+fn for_while() {
+    let mut array = [10, 20, 30, 40, 50, 60];
+
+    for i in 0..array.len() {
+        array[i] = array[i] * 2;
+    }
+
+    for element in array.iter() {
+        println!("Element Value: {}", element);
+    }
 }
