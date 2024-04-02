@@ -100,6 +100,9 @@ fn data_types() {
 
     println!("\nBucles with for");
     for_while();
+
+    println!("\nPropiety Concept: ");
+    propiety_concept();
 }
 
 fn using_functions(array: [i32; 5]) {
@@ -195,4 +198,29 @@ fn for_while() {
     for element in array.iter() {
         println!("Element Value: {}", element);
     }
+}
+
+fn propiety_concept() {
+    // Stack and Heap
+    let i: i32 = 7;
+    let j: i32 = i;
+
+    /* Is not possible to do this
+    {
+        let i = 8;
+        let cadena = String::from("Hello, I'm learning Rust");
+    }
+     */
+
+    let string1 = String::from("Hello, I'm learning Rust");
+    let string2 = string1.clone();
+    /* let string2 = string1; In this case string1 will not be pointing to anything*/
+
+    println!("\n Int values: - Size i32");
+    println!("i: {}", i);
+    println!("j: {}", j);
+
+    println!("\n String values: - Size not defined");
+    println!("String2: {}", string2);
+    println!("String1: {}", string1);
 }
