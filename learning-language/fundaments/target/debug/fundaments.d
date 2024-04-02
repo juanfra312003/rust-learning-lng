@@ -1,1 +1,1 @@
-E:\Proyectos\ GH\rust-learning-lng\learning-language\fundaments\target\debug\fundaments.exe: E:\Proyectos\ GH\rust-learning-lng\learning-language\fundaments\src\main.rs
+C:\Users\juanf\OneDrive\Escritorio\rust-learning-lng\learning-language\fundaments\target\debug\fundaments.exe: C:\Users\juanf\OneDrive\Escritorio\rust-learning-lng\learning-language\fundaments\src\main.rs

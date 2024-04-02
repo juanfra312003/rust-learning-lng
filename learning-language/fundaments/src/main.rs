@@ -109,19 +109,52 @@ fn data_types() {
     let result_string = take_propierty(string);
     println!("String Value: {}", result_string);
 
+    println!("\nPropierty with i32: ");
+    let number = 10;
+    take_propierty_i32(number);
+    println!("Number Value: {}", number);
+
     println!("\nPropierty with return: ");
-    let string = String::from("Today is a great day");
-    let (result_string, length) = propierty_return(string);
-    println!("String Value: {}, Length: {}", result_string, length);
+    let mut string = String::from("Today is a great day");
+    let length = propierty_return(&mut string);
+    println!("String Value: {}, Length: {}", string, length);
+
+    /*
+    // Strings - data type not simple:
+    
+    let mut a : String = "Hello, Esteban".to_string();
+    a.push_str(" and Millos will win today!");
+    println!("Value of the string: {}", a);
+    */
+
+    // Mutable and immutable references control
+    let mut s = String::from("I'm Juan Francisco");
+    let cad1 = &s;
+    let cad2 = &s;
+    println!("{} {}", cad1, cad2);
+
+    let cad3 = &mut s;
+    println!("{}", cad3);
+
+    
 }
 
-fn propierty_return(string: String) -> (String, usize) {
+fn propierty_return(string: &mut String) -> usize {
     let length: usize = string.len();
-    return (string, length);
+    println!("Value of the string: {}", *string);
+    
+    // Modify the string
+    string.push_str(" and Millos will win today!");
+    
+    return length;
 }
 
 fn take_propierty(string: String) -> String {
     return string;
+}
+
+fn take_propierty_i32(number: i32) {
+    println!("Number Value: {}", number);
 }
 
 fn using_functions(array: [i32; 5]) {
