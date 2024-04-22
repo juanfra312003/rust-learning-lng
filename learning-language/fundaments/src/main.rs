@@ -131,6 +131,95 @@ fn data_types() {
     let list_a = [1, 2, 3, 4, 5];
     let list_b = &list_a[1..3];
     println!("List B: {:?}", list_b);
+
+    // STRUCTS
+    // Define elements of a struct
+    let mut user1 = User {
+        name: String::from("Juan Francisco"),
+        email: String::from("juanframireze@gmail.com"),
+        age: 20,
+        active: true,
+    };
+
+    user1.email = String::from("juanfra312003@gmail.com");
+    let mut user2 = create_user(
+        String::from("Paola Escobar"),
+        String::from("paoescobar2012@gmail.com"),
+    );
+
+    // Wait to abreast the struct (i.e. with the missing data, use the values of another instance)
+    let user3 = User {
+        name: String::from("Cristiano Ronaldo"),
+        email: String::from("cr7@gmail.com"),
+        ..user1
+    };
+
+    // Print third user
+    println!(
+        "User 3: {}, {}, {}, {}",
+        user3.name, user3.email, user3.age, user3.active
+    );
+
+    // Structs of tuples
+    let black = Color(0, 0, 0);
+    let origin = Coordenates(0, 0, 0);
+
+    // Structs of Unit
+    let height_one = 15;
+    let width_one = 26;
+    let area_one = area_one(height_one, width_one);
+
+    let rect_dimensions = (15, 26);
+    println!("Area One: {}", area_one);
+    println!("Area Tuples: {}", area_tuples(rect_dimensions));
+
+    let rect_1 = Rectangulo {
+        height: 15,
+        width: 26,
+    };
+    println!("Area Struct: {}", area_struct(&rect_1));
+}
+
+// STRUCTS
+fn area_struct(rect: &Rectangulo) -> u32 {
+    rect.height * rect.width
+}
+
+fn area_one(height: u32, width: u32) -> u32 {
+    height * width
+}
+
+fn area_tuples(dimension: (u32, u32)) -> u32 {
+    dimension.0 * dimension.1
+}
+
+struct Rectangulo {
+    height: u32,
+    width: u32,
+}
+
+// STRUCTS OF TUPLES
+// Color RGB, not defined the name of the propierties
+struct Color(i32, i32, i32);
+struct Coordenates(i32, i32, i32);
+
+// STRUCTS USSUAL
+struct User {
+    name: String,
+    email: String,
+    age: u8,
+    active: bool,
+}
+
+// Create function that create an instance of a struct
+fn create_user(name: String, email: String) -> User {
+    User {
+        //name : name, -> Cuando coinciden, se puede abreviar
+        name,
+        email: email,
+        age: 0,
+        active: true,
+    }
 }
 
 fn propierty_return(string: String) -> (String, usize) {
