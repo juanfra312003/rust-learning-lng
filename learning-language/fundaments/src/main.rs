@@ -229,14 +229,13 @@ fn propierty_return(string: String) -> (String, usize) {
 
 fn take_propierty(string: String) -> String {
     return string;
+ing {
+    return string;
 }
 
-fn using_functions(array: [i32; 5]) {
-    // Arrays calling a function with a return value and the array as parameter
-
-    for i in 0..5 {
-        println!("Array Value: {}", array[i]);
-        let cousin: bool = cousin_number(array[i]);
+fn take_propierty_i32(number: i32) {
+    println!("Number Value: {}", number);
+rray[i]);
         if cousin {
             println!("The number {} is cousin", array[i]);
         } else {
