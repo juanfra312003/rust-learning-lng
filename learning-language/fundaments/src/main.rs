@@ -113,6 +113,24 @@ fn data_types() {
     let string = String::from("Today is a great day");
     let (result_string, length) = propierty_return(string);
     println!("String Value: {}, Length: {}", result_string, length);
+
+    // Slides
+    println!("\nSlides: ");
+    let string_slides = String::from("Hello friends of Rust");
+    let hello = &string_slides[..5];
+    let friends = &string_slides[6..];
+
+    println!("Hello: {}", hello);
+    println!("Friends: {}", friends);
+
+    // Get the first word of a string using a function (Slides)
+    let return_string = slides_first_word(&string_slides);
+    println!("First Word: {}", return_string);
+
+    // Slides of collections
+    let list_a = [1, 2, 3, 4, 5];
+    let list_b = &list_a[1..3];
+    println!("List B: {:?}", list_b);
 }
 
 fn propierty_return(string: String) -> (String, usize) {
@@ -242,4 +260,29 @@ fn propiety_concept() {
     println!("\n String values: - Size not defined");
     println!("String2: {}", string2);
     println!("String1: {}", string1);
+}
+
+// Slides:
+// Function that return the number of bits of the first word of a string
+fn first_word(string: &String) -> usize {
+    let bytes = string.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+    string.len()
+}
+
+// Function that return the slide of the first word of a string
+fn slides_first_word(string: &str) -> &str {
+    let bytes = string.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &string[..i];
+        }
+    }
+    &string[..]
 }
