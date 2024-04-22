@@ -69,7 +69,7 @@ fn data_types() {
     // Arrays
     println!("\nArrays: ");
     let array: [i32; 5] = [1, 2, 3, 4, 5];
-    using_functions(array);
+    //using_functions(array);
 
     // Conditions
     println!("\nConditions: ");
@@ -229,18 +229,14 @@ fn propierty_return(string: String) -> (String, usize) {
 
 fn take_propierty(string: String) -> String {
     return string;
-ing {
-    return string;
 }
 
 fn take_propierty_i32(number: i32) {
     println!("Number Value: {}", number);
-rray[i]);
-        if cousin {
-            println!("The number {} is cousin", array[i]);
-        } else {
-            println!("The number {} is not cousin", array[i]);
-        }
+    if cousin_number(number) {
+        println!("The number {} is cousin", number);
+    } else {
+        println!("The number {} is not cousin", number);
     }
 
     // Give a value to a var due to a function
